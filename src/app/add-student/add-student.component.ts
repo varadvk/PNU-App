@@ -26,7 +26,7 @@ export class AddStudentComponent implements OnInit {
       (response) => {
         console.log(response);
         form.reset();
-        this.studentFile = null;
+        // this.studentFile = null;
       }, (error) => {
         console.log(error);
       }

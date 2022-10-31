@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div align="right">
+        <button type="button" class="btn btn-primary" (click)="exportToExcel()">Export as Excel</button>
+    </div>
+    <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Contact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of students">
+            <td>{{s.studentId}}</td>
+            <td>{{s.studentName}}</td>
+            <td>{{s.studentAddress}}</td>
+            <td>{{s.studentContact}}</td>
+            <td>{{s.studentDocumentURL}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

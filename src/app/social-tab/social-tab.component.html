@@ -1,0 +1,91 @@
+<div class="container mt-5">
+    <div class="card p-4">
+        <form>
+            <div class="row">
+                <div class="col-5">
+                    <form #questionForm="ngForm"
+                          (ngSubmit)="searchQuestion(questionForm)">
+                        <div class="mb-3">
+                            <input type="text"
+                                   [(ngModel)]="searchQuestionKey.question"
+                                   class="form-control"
+                                   id="search"
+                                   name="search"
+                                   placeholder="Search your question here...">
+                        </div>
+                        <div align="center">
+                            <button type="submit"
+                                    class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-2 text-center">
+                    <b>
+                        or
+                    </b>
+                </div>
+                <div class="col-5">
+                    <form #questionForm="ngForm"
+                          (ngSubmit)="submitQuestion(questionForm)">
+                        <div class="mb-3">
+                            <input type="text"
+                                   class="form-control"
+                                   [(ngModel)]="question.question"
+                                   id="newQuestion"
+                                   name="newQuestion"
+                                   placeholder="Submit new question...">
+                        </div>
+                        <div align="center">
+                            <button type="submit"
+                                    class="btn btn-primary">Submit Question</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="mt-5">
+
+        <div *ngIf="searchQuestionKey.question != null && searchQuestionKey.question != ''">
+            <ul class="list-group">
+                <li class="list-group-item"
+                    *ngFor="let q of searchResult">
+                    <div>
+                        <a [routerLink]="['/qna', q.questionId]"
+                       target="_blank">
+                        {{q.question}}
+                    </a>
+                    </div>
+                    <div>
+                        {{q.answers.length}} Answers
+                    </div> 
+                </li>
+            </ul>
+        </div>
+        
+
+        <div *ngIf="searchQuestionKey.question === null || searchQuestionKey.question === ''">
+            <h3>Here are some unanswered questions, answer them if you know...</h3>
+            <ul class="list-group">
+                <li class="list-group-item"
+                    *ngFor="let q of unansweredQuestion">
+                    <div>
+                        <a [routerLink]="['/qna', q.questionId]"
+                       target="_blank">
+                        {{q.question}}
+                    </a>
+                    </div>
+                    <div>
+                        {{q.answers.length}} Answers
+                    </div> 
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+

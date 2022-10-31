@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <h2>
+        {{resultQuestion.question}}
+    </h2>
+
+    <div class="card mt-3 p-2"
+         *ngFor="let ans of resultQuestion.answers">
+        {{ans.answer}}
+    </div>
+
+    <div class="mt-3">
+        <form #answerForm="ngForm"
+              (ngSubmit)="submitAnswer(answerForm)">
+            <div class="mb-3">
+                <label for="answer"
+                       class="form-label">Submit your answer here</label>
+                <textarea class="form-control"
+                          [(ngModel)]="answers.answer"
+                          name="answer"
+                          id="answer"
+                          rows="3">
+                        </textarea>
+            </div>
+
+            <div align="right">
+                <button type="submit"
+                        class="btn btn-primary">Submit Answer</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

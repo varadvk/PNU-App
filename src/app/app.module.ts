@@ -9,13 +9,21 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { PaymentComponent } from './payment/payment.component';
+import { ExportStudentComponent } from './export-student/export-student.component';
+import { SocialTabComponent } from './social-tab/social-tab.component';
+import { QuestionAnswerComponent } from './question-answer/question-answer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddStudentComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    PaymentComponent,
+    ExportStudentComponent,
+    SocialTabComponent,
+    QuestionAnswerComponent
   ],
   imports: [
     BrowserModule,

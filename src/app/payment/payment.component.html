@@ -1,0 +1,20 @@
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<div class="container mt-5 text-center">
+    <div class="card p-5 text-center" style="width: 400px; margin-left: auto;margin-right: auto;">
+        <form #paymentForm="ngForm"
+              (ngSubmit)="makePayment(paymentForm)">
+            <div class="mb-3">
+                <label for="studentName"
+                       class="form-label">Enter Amount</label>
+                <input type="text"
+                       [(ngModel)]="amount.amount"
+                       class="form-control"
+                       id="amount"
+                       name="amount"
+                       placeholder="500">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Pay</button>
+        </form>
+    </div>
+</div>
