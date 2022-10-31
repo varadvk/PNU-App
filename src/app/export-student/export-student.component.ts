@@ -47,4 +47,23 @@ export class ExportStudentComponent implements OnInit {
       }
     );
   }
+
+  exportToPdf() {
+    let fileName =
+      'Student_' + this.day + '_' + this.month + '_' + this.year + '.pdf';
+    this.studentService.exportToPdf().subscribe(
+      (resp: any) => {
+        var a = document.createElement('a');
+          a.href = URL.createObjectURL(resp);
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          this.blockedDocument = false;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }

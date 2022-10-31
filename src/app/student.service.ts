@@ -21,4 +21,10 @@ export class StudentService {
       responseType : 'blob'
     });
   }
+
+  public exportToPdf() {
+    return this.httpClient.get('http://localhost:9090/export/pdf', {
+      responseType : 'blob'
+    });
+  }
 }
