@@ -15,6 +15,7 @@ export class AddStudentComponent implements OnInit {
   };
 
   studentFile: any;
+  studentProfilePicture: any;
 
   constructor(private studentService: StudentService) {}
 
@@ -39,10 +40,17 @@ export class AddStudentComponent implements OnInit {
     }
   }
 
+  addProfilePicture(event: any) {
+    if (event.target.files) {
+      this.studentProfilePicture = event.target.files[0];
+    }
+  }
+
   prepareFormData(): FormData {
     const formData = new FormData();
     formData.append('studentData', new Blob([JSON.stringify(this.student)], { type: "application/json" }));
     formData.append('studentDocuments', this.studentFile, this.studentFile.name);
+    formData.append('studentProfilePicture', this.studentProfilePicture, this.studentProfilePicture.name);
     return formData;
   }
 }

@@ -6,6 +6,7 @@
         <thead>
           <tr>
             <th scope="col">Id</th>
+            <th scope="col">Profile</th>
             <th scope="col">Name</th>
             <th scope="col">Address</th>
             <th scope="col">Contact</th>
@@ -15,6 +16,7 @@
         <tbody>
           <tr *ngFor="let s of students">
             <td>{{s.studentId}}</td>
+            <td> <img [src]="s.profilePictureUrl" alt="" height="50px" width="50px"></td>
             <td>{{s.studentName}}</td>
             <td>{{s.studentAddress}}</td>
             <td>{{s.studentContact}}</td>

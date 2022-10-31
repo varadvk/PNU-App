@@ -46,7 +46,18 @@
                            value="select"
                            (change)="addFile($event)">
                 </div>
-                
+
+                <br><br><br>
+
+
+                <h1 class="text-center">Choose profile picture</h1>
+                <div class="text-center">
+                    <input type="file"
+                           #selectFile
+                           value="select"
+                           (change)="addProfilePicture($event)">
+                </div>
+
             </div>
         </div>
     </div>
